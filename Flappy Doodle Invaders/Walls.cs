@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
- public  class Walls
- {
+public class Walls
+{
     public int Position { get; set; }
     public int Height { get; set; }
     public string WallSegment { get; set; }
@@ -28,10 +28,4 @@ using System.Threading.Tasks;
         Console.SetCursorPosition(Position, 0);
     }
 
-    public static Walls CreateWallSegment(int position, int height)
-    {
-        string wallSegment = "/\\/\\";
-        return new Walls(position, height, wallSegment);
-    }
-
- }
+}
