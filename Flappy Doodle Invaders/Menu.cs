@@ -76,16 +76,6 @@ internal class Menu
         Console.Clear();
         Console.WriteLine("Starting Game");
 
-        //Creating walls
-        Walls wall1 = new(5, 10, "/\\/\\");
-        Walls wall2 = new(20, 8, "/\\/\\");
-
-       
-
-        //Rendering walls
-        wall1.Render();
-
-        wall2.Render();
 
         Player player = new Player("Player1");
 

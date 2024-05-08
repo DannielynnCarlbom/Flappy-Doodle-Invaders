@@ -8,21 +8,19 @@ internal class Player
 {
     public Player (string name)
     {
-        pos.X = Console.WindowWidth / 2;
-
-
+        
     }
 
     public void Update()
     {
         HandlePlayerInput();
-        HandleBulletDestruction();
+        //HandleBulletDestruction();
 
         //  foreach(Bullet bullet in bullets)
         {
-            if (bullet != null)
+        //    if (bullet != null)
             {
-                bullet.Move();
+         //       bullet.Move();
             }
         }
 
@@ -35,11 +33,11 @@ internal class Player
 
                 if(keyInfo.Key == ConsoleKey.A)
                 {
-                    Move(-1);
+                    //Move(-1);
                 }
                 if(keyInfo.Key == ConsoleKey.D)
                 {
-                    Move(1);
+                   // Move(1);
                 }
                 if(keyInfo.Key == ConsoleKey.Spacebar)
                 {
@@ -50,10 +48,10 @@ internal class Player
 
         void Shoot()
         {
-            if (bulletCounter < maxBullets)
+         //   if (bulletCounter < maxBullets)
             {
-                bullets[bulletCounter] = new(pos);
-                bulletCounter++;
+           //     bullets[bulletCounter] = new(pos);
+             //   bulletCounter++;
             }
         }
     }

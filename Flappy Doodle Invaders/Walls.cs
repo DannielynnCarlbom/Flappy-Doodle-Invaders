@@ -1,31 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class Walls
 {
-   public Walls[] walls = new Walls[4];
-   double spawntimer = 2;
-    public string WallSegment { get; set; }
-
-
-    public Walls(int position, int height, string wallSegment)
+    public class Wall
     {
-        Position = position;
-        Height = height;
-        WallSegment = wallSegment;
+        public int X { get; set; }
+        public int Y { get; set; }
+        public string Symbol { get; set; }
+
+        public Wall(int x, int y, string symbol)
+        {
+            X = x;
+            Y = y;
+            Symbol = symbol;
+        }
     }
 
-    public bool IsWithinBounds(int y)
+    public static Wall[] CreateWalls(int maxWalls)
     {
-        return y >= 0 && y < Height;
+        Wall[] walls = new Wall[maxWalls];
+        Random random = new Random();
+        for (int i = 0; i < maxWalls; i++)
+        {
+            walls[i] = new Wall(random.Next(Console.WindowWidth), 2, "[]");
+        }
+        return walls;
     }
-
-    public void Render()
+    public static void Render(Wall[] walls)
     {
-        Console.SetCursorPosition(Position, 0);
+        foreach (var wall in walls)
+        {
+            Console.SetCursorPosition(wall.X, wall.Y);
+            Console.Write(wall.Symbol);
+        }
     }
-
 }
+
+    
+
+     
+    
