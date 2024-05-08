@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 public class Walls
 {
-    public int Position { get; set; }
-    public int Height { get; set; }
+   public Walls[] walls = new Walls[4];
+   double spawntimer = 2;
     public string WallSegment { get; set; }
 
 
