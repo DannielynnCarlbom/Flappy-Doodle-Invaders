@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Walls
+class Walls 
 {
     public class Wall
     {
@@ -16,22 +16,28 @@ public class Walls
         }
     }
 
-    public static Wall[] CreateWalls(int maxWalls)
+    public Wall[] CreateWalls(int maxWalls)
     {
         Wall[] walls = new Wall[maxWalls];
         Random random = new Random();
+        int wallwidth = 2;
+
         for (int i = 0; i < maxWalls; i++)
         {
-            walls[i] = new Wall(random.Next(Console.WindowWidth), 2, "[]");
+            int x = random.Next(Console.WindowWidth - wallwidth);
+            walls[i] = new Wall(x, 0, "^");
         }
         return walls;
     }
+
     public static void Render(Wall[] walls)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         foreach (var wall in walls)
         {
             Console.SetCursorPosition(wall.X, wall.Y);
             Console.Write(wall.Symbol);
+
         }
     }
 }
