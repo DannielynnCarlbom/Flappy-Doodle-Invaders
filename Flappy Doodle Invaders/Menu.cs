@@ -12,8 +12,8 @@ internal class Menu
             int alt = int.Parse(Console.ReadLine());
             if (alt == 1)
             {
-                highscore Hs = new();
-                Hs.Highscore();
+                Highscore Hs = new();
+                Hs.HighscoreList();
             }
             else if (alt == 2)
             {

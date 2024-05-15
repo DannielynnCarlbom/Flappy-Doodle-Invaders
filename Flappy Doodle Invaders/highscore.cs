@@ -1,35 +1,35 @@
-﻿internal class highscore
+﻿internal class Highscore
 {
-    public void Highscore()
+    public void highscoreList()
     {
-        string[] Highscore;
-        string filename = "Highscore.txt";
+        string[] highscore;
+        string filename = "highscore.txt";
         int podium = 5;
         string empty = "";
 
         Console.Clear();
-        Console.WriteLine("Highscore List");
+        Console.WriteLine("highscore List");
 
         // Läs in från fil ifall den finns
         if (File.Exists(filename))
         {
-            Highscore = File.ReadAllLines(filename);
+            highscore = File.ReadAllLines(filename);
 
         }
         else
         {
             // Skapa  och fyll den med information
 
-            Highscore = new string[podium];
-            for (int i = 0; i < Highscore.Length; i++)
+            highscore = new string[podium];
+            for (int i = 0; i < highscore.Length; i++)
             {
-                Highscore[i] = empty;
+                highscore[i] = empty;
             }
-            File.WriteAllLines(filename, Highscore);
+            File.WriteAllLines(filename, highscore);
         }
-        for (int i = 0; i < Highscore.Length; i++)
+        for (int i = 0; i < highscore.Length; i++)
         {
-            if (Highscore[i] == empty)
+            if (highscore[i] == empty)
             {
                 Console.WriteLine($"{i + 1}. ");
                 continue;
@@ -39,10 +39,10 @@
 
     // Sortering måsta lösas
 
-    // Om det finns Highscores
+    // Om det finns highscores
     // Nödvändig information inte skriven än
 
-    // string[] solo = Highscore[i].Split(';');
+    // string[] solo = highscore[i].Split(';');
     // string place = solo[1];
     //Console.WriteLine($"{i + 1}. Name: {name}, Score: {timescore}"); 
 

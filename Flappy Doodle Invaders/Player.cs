@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 internal class Player
 {
+
+
     public Player (string name)
     {
         pos.X = Console.WindowWidth / 2;
