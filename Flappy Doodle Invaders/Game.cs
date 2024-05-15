@@ -4,10 +4,11 @@
 {
     Walls.Wall[] walls;
     Walls wallsInstance;
+
     public Game()
     {
         wallsInstance = new Walls();
-        walls = wallsInstance.CreateWalls(100);
+        walls = wallsInstance.CreateWalls(10);
     }
 
     public void Run()

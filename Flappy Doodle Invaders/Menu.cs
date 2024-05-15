@@ -33,8 +33,6 @@ class Menu
         Console.WriteLine("Starting Game... ");
         Thread.Sleep(3000);
         Console.Clear();
-
-        
         
         isRunning = false;
 

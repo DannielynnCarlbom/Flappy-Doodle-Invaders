@@ -1,4 +1,4 @@
-﻿internal class highscore
+﻿ class highscore
 {
     public void Highscore()
     {
