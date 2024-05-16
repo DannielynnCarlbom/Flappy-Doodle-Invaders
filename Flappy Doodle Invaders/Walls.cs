@@ -27,51 +27,35 @@ class Walls
 
     //}
 
-    public Wall[] CreateWalls(int maxWallsPerRow, int numRows)
+    public Wall[] CreateWalls(int wallsPerRow, int numRows, int gapWidth)
     {
-        int totalWalls = maxWallsPerRow * numRows;
-
+        int totalWalls = wallsPerRow * numRows;
         Wall[] walls = new Wall[totalWalls];
         Random random = new Random();
-        int wallwidth = 2;
-        int gapWidth = 4; // Width of the gap between walls
+        int wallWidth = 2;  // Corrected from `wallwidth` to `wallWidth`
+        int screenHeight = Console.WindowHeight;
+        int screenWidth = Console.WindowWidth;
+        int wallHeight = screenHeight / numRows;
 
-
-        // Calculate the total width available for walls and gaps
-        int totalWidth = Console.WindowWidth - (maxWalls * wallwidth) - ((maxWalls - 1) * gapWidth);
-
-        // Calculate the number of gaps between walls
-        int numGaps = maxWalls - 1;
-
-        // Calculate the width of each gap
-        int gapSize = totalWidth / numGaps;
-
-        // Ensure the gap size is at least 1
-        gapSize = Math.Max(gapSize, 1);
-
-        // Initialize gap position to a random value within the range of gaps
-        int gapPosition = random.Next(numGaps);
-
-        int x = 0; // Initialize x coordinate for the first wall
-
-        for (int i = 0; i < maxWalls; i++)
+        for (int row = 0; row < numRows; row++)
         {
-            // If this is not the first wall, add a gap before it
-            if (i > 0)
+            int gapStart = random.Next(screenWidth - gapWidth);
+            int y = row * wallHeight;
+
+            for (int x = 0; x < screenWidth; x += wallWidth)
             {
-                x += gapSize;
+                if (x < gapStart || x > gapStart + gapWidth)
+                {
+                    int wallIndex = row * wallsPerRow + (x / wallWidth);
+                    if (wallIndex < totalWalls)  // Ensure we do not go out of bounds
+                    {
+                        walls[wallIndex] = new Wall(x, y, "^");
+                    }
+                }
             }
-
-            // Create the wall at the current position
-            walls[i] = new Wall(x, 0, "^");
-
-            // Move x coordinate to the position for the next wall
-            x += wallwidth;
         }
-
         return walls;
     }
-
 
     public static void Render(Wall[] walls)
     {
