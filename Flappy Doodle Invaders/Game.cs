@@ -8,7 +8,7 @@
     public Game()
     {
         wallsInstance = new Walls();
-        walls = wallsInstance.CreateWalls(Console.WindowWidth / 2, 4,8);
+        walls = wallsInstance.CreateWalls(Console.WindowWidth / 2, 5,8);
     }
 
     public void Run()
