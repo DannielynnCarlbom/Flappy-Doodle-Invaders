@@ -24,15 +24,23 @@ class Player : Doodleship
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
 
-                if(keyInfo.Key == ConsoleKey.A)
+                if(keyInfo.Key == ConsoleKey.A) //ConsoleKey.LeftArrow
                 {
-                   
+                    
                 }
-                if(keyInfo.Key == ConsoleKey.D)
+                if(keyInfo.Key == ConsoleKey.D) //ConsoleKey.RighttArrow
                 {
-                   
-            }
-                if(keyInfo.Key == ConsoleKey.Spacebar)
+                    
+                }
+                if(keyInfo.Key == ConsoleKey.W) //ConsoleKey.UpArrow
+                {
+                    
+                }
+                if (keyInfo.Key == ConsoleKey.S) //ConsoleKey.DownArrow
+                {
+                    
+                }
+                if (keyInfo.Key == ConsoleKey.Spacebar)
                 {
                     Shoot();
                 }

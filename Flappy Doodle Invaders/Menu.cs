@@ -7,13 +7,12 @@ class Menu
     {
         while (isRunning)
         {
-
             Console.WriteLine("Welcome to Flappy Doodle Invaders\n[1] Highscore\n[2] Start Game");
             int alt = int.Parse(Console.ReadLine());
             if (alt == 1)
             {
                 Highscore Hs = new();
-                Hs.HighscoreList();
+                Hs.highscoreList();
             }
             else if (alt == 2)
             {
