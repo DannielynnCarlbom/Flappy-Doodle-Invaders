@@ -4,29 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-internal class Player
+class Player : Doodleship
 {
-
-
-    public Player (string name)
+    public Player(int initialX, int initialY) : base(initialX, initialY)
     {
-        pos.X = Console.WindowWidth / 2;
-
-
+        X = initialX;
+        Y = initialY;
     }
 
     public void Update()
     {
         HandlePlayerInput();
-        HandleBulletDestruction();
-
-        //  foreach(Bullet bullet in bullets)
-        {
-            if (bullet != null)
-            {
-                bullet.Move();
-            }
-        }
+    }
 
         void HandlePlayerInput()
         {
@@ -37,12 +26,12 @@ internal class Player
 
                 if(keyInfo.Key == ConsoleKey.A)
                 {
-                    Move(-1);
+                   
                 }
                 if(keyInfo.Key == ConsoleKey.D)
                 {
-                    Move(1);
-                }
+                   
+            }
                 if(keyInfo.Key == ConsoleKey.Spacebar)
                 {
                     Shoot();
@@ -52,12 +41,16 @@ internal class Player
 
         void Shoot()
         {
-            if (bulletCounter < maxBullets)
+         //   if (bulletCounter < maxBullets)
             {
-                bullets[bulletCounter] = new(pos);
-                bulletCounter++;
+           //     bullets[bulletCounter] = new(pos);
+             //   bulletCounter++;
             }
         }
-    }
-}
+        public void Render()
+        {
+         
+        }
+     }
+
 

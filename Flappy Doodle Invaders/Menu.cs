@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
-internal class Menu
+class Menu
 {
     private bool isRunning = true;
     public void StartMenu()
@@ -8,7 +8,7 @@ internal class Menu
         while (isRunning)
         {
 
-            Console.WriteLine("Welcome to Flappy Doodla Invaders\n[1] Highscore\n[2] Start Game");
+            Console.WriteLine("Welcome to Flappy Doodle Invaders\n[1] Highscore\n[2] Start Game");
             int alt = int.Parse(Console.ReadLine());
             if (alt == 1)
             {
@@ -30,27 +30,15 @@ internal class Menu
     public void StartGame()
     {
         Console.Clear();
-        Console.WriteLine("Starting Game");
+        Console.WriteLine("Starting Game... ");
+        Thread.Sleep(3000);
+        Console.Clear();
 
-        //Creating walls
-        Walls wall1 = new(5, 10, "/\\/\\");
-        Walls wall2 = new(20, 8, "/\\/\\");
+        
+        
+        isRunning = false;
 
-       
 
-        //Rendering walls
-        wall1.Render();
 
-        wall2.Render();
-
-        Player player = new Player("Player1");
-
-        while (isRunning)
-        {
-            player.Update();
-
-        }
-
-        System.Threading.Thread.Sleep(100);
     }
 }

@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-internal class Game
+ class Game
 {
-    
-
+    Walls.Wall[] walls;
+    Walls wallsInstance;
     public Game()
     {
-
+        wallsInstance = new Walls();
+        walls = wallsInstance.CreateWalls(100);
     }
 
     public void Run()
@@ -26,7 +23,7 @@ internal class Game
     }
     public void Update()
     {
-
+        Walls.Render(walls);
     }
 
     public void Initializer()
