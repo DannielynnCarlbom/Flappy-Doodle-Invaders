@@ -32,7 +32,8 @@ class Menu
         Console.WriteLine("Starting Game... ");
         Thread.Sleep(1000);
         Console.Clear();
-        
+
+        Player player = new('A');
         isRunning = false;
 
 

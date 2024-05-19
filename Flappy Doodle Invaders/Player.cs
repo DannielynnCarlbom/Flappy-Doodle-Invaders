@@ -2,55 +2,65 @@
 
 class Player : Doodleship
 {
-    public Player(int initialX, int initialY) : base(initialX, initialY)
+    public Player(char ship) : base (ship)
     {
-        X = initialX;
-        Y = initialY;
+        pos.X = Console.WindowWidth / 2;
+        pos.Y = Console.WindowHeight - 2;
     }
 
     public void Update()
     {
+        //Handles all changes in the playerclass
         HandlePlayerInput();
+        BulletEraser();
+
+        foreach (Bullet bullet in bullets)
+        {
+            if (bullet != null)
+                bullet.Move();
+        }
     }
 
-        void HandlePlayerInput()
+    void HandlePlayerInput()
+    {
+        if(Console.KeyAvailable)
         {
-            if(Console.KeyAvailable)
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
+
+            if(keyInfo.Key == ConsoleKey.A) //ConsoleKey.LeftArrow
             {
-
-                ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
-
-                if(keyInfo.Key == ConsoleKey.A) //ConsoleKey.LeftArrow
-                {
-                    
-                }
-                if(keyInfo.Key == ConsoleKey.D) //ConsoleKey.RighttArrow
-                {
-                    
-                }
-                if(keyInfo.Key == ConsoleKey.W) //ConsoleKey.UpArrow
-                {
-                    
-                }
-                if (keyInfo.Key == ConsoleKey.S) //ConsoleKey.DownArrow
-                {
-                    
-                }
-                if (keyInfo.Key == ConsoleKey.Spacebar)
-                {
-                    Shoot();
-                }
+                MoveY(-1);
+            }
+            if(keyInfo.Key == ConsoleKey.D) //ConsoleKey.RighttArrow
+            {
+                MoveX(1);
+            }
+            if(keyInfo.Key == ConsoleKey.W) //ConsoleKey.UpArrow
+            {
+                MoveY(1);
+            }
+            if (keyInfo.Key == ConsoleKey.S) //ConsoleKey.DownArrow
+            {
+                MoveX(-1);
+            }
+            if (keyInfo.Key == ConsoleKey.Spacebar)
+            {
+                Shoot();
             }
         }
+    }
 
-        void Shoot()
+    void Shoot()
+    {
+        //Shoots if you can.
+        if (bulletCounter < maxBullets)
         {
-         //   if (bulletCounter < maxBullets)
-            {
-           //     bullets[bulletCounter] = new(pos);
-             //   bulletCounter++;
-            }
+            bullets[bulletCounter] = new(pos);
+            bulletCounter++;
+
         }
+    }
         public void Render()
         {
          
