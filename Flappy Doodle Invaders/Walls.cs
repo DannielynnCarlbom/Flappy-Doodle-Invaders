@@ -25,13 +25,15 @@ class Walls
             }
         }
     }
-
-    //public bool IsCollision(Player player)
-    // {
-
-    //}
-
-    public Wall[] CreateWalls(int wallsPerRow, int numRows, int gapWidth, int bossHeight, int startY)
+    
+    /// <summary>
+    /// Creates an array of walls with gaps for the player to go through 
+    /// </summary>
+    /// <param name="wallsPerRow">number of walls per row</param>
+    /// <param name="numRows">number of walls to create</param>
+    /// <param name="gapWidth">width of the gap in each row</param>
+    /// <returns></returns>
+    public Wall[] CreateWalls(int wallsPerRow, int numRows, int gapWidth, int startY)//int bossHeight
     {
         int totalWalls = wallsPerRow * numRows;
         Wall[] walls = new Wall[totalWalls];
@@ -64,6 +66,10 @@ class Walls
         return walls;
     }
 
+    /// <summary>
+    /// Renders/draws the walls on the screen 
+    /// </summary>
+    /// <param name="walls">Is the array of walls to render/draw</param>
     public static void Render(Wall[] walls)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;

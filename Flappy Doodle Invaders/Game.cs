@@ -12,8 +12,8 @@ class Game
     int[] rowFallTimers;
     int fallDelay = 2000;
     int screenHeight;
-    Boss boss;
-    int bossHeight = 2;
+   // Boss boss;
+   // int bossHeight = 2;
 
 
     public Game()
@@ -21,12 +21,12 @@ class Game
         wallsInstance = new Walls();            
         screenHeight = Console.WindowHeight;
         wallsPerRow = Console.WindowWidth / 2;
-        walls = wallsInstance.CreateWalls(wallsPerRow, numRows, 8, bossHeight);
+        walls = wallsInstance.CreateWalls(wallsPerRow, numRows, 8); //bossHeight);
         rowFallTimers = new int[numRows];
         InitializeTimers();
 
         //Initalizing the boss
-        boss = new Boss(Console.WindowWidth / 2, bossHeight - 1, "B");
+       // boss = new Boss(Console.WindowWidth / 2, bossHeight - 1, "B");
     }
 
     public void Run()
@@ -64,7 +64,7 @@ class Game
 
         Console.Clear();
         Walls.Render(walls);
-        boss.Render();
+        //boss.Render();
     }
 
 
