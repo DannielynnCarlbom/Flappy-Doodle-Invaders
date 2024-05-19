@@ -1,6 +1,6 @@
 ﻿using System;
 
-//internal class HP
+//internal class HP (commented out for now because of not using the HP class)
 //{
 //    public int CurrentHP { get; set; }
 //    public int MaxHP { get; set; }
