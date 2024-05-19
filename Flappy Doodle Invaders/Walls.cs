@@ -2,6 +2,7 @@
 
 class Walls 
 {
+
     public class Wall
     {
         public int X { get; set; }
@@ -14,18 +15,44 @@ class Walls
             Y = y;
             Symbol = symbol;
         }
+
+        public void Fall(int wallsFallSpeed)
+        {
+            Y += wallsFallSpeed;
+        }
     }
 
-    public Wall[] CreateWalls(int maxWalls)
-    {
-        Wall[] walls = new Wall[maxWalls];
-        Random random = new Random();
-        int wallwidth = 2;
+    //public bool IsCollision(Player player)
+    // {
 
-        for (int i = 0; i < maxWalls; i++)
+    //}
+
+    public Wall[] CreateWalls(int wallsPerRow, int numRows, int gapWidth)
+    {
+        int totalWalls = wallsPerRow * numRows;
+        Wall[] walls = new Wall[totalWalls];
+        Random random = new Random();
+        int wallWidth = 2;  // Corrected from `wallwidth` to `wallWidth`
+        int screenHeight = Console.WindowHeight;
+        int screenWidth = Console.WindowWidth;
+        int wallHeight = screenHeight / numRows;
+
+        for (int row = 0; row < numRows; row++)
         {
-            int x = random.Next(Console.WindowWidth - wallwidth);
-            walls[i] = new Wall(x, 0, "^");
+            int gapStart = random.Next(screenWidth - gapWidth);
+            int y = row * wallHeight;
+
+            for (int x = 0; x < screenWidth; x += wallWidth)
+            {
+                if (x < gapStart || x > gapStart + gapWidth)
+                {
+                    int wallIndex = row * wallsPerRow + (x / wallWidth);
+                    if (wallIndex < totalWalls)  // Ensure we do not go out of bounds
+                    {
+                        walls[wallIndex] = new Wall(x, y, "^");
+                    }
+                }
+            }
         }
         return walls;
     }
@@ -34,10 +61,12 @@ class Walls
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
         foreach (var wall in walls)
-        {
-            Console.SetCursorPosition(wall.X, wall.Y);
-            Console.Write(wall.Symbol);
-
+        { 
+            if (wall != null)
+            {
+              Console.SetCursorPosition(wall.X, wall.Y);
+              Console.Write(wall.Symbol);
+            }   
         }
     }
 }

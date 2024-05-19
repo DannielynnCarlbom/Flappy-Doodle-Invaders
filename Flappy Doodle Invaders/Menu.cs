@@ -30,10 +30,8 @@ class Menu
     {
         Console.Clear();
         Console.WriteLine("Starting Game... ");
-        Thread.Sleep(3000);
+        Thread.Sleep(1000);
         Console.Clear();
-
-        
         
         isRunning = false;
 

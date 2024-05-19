@@ -4,10 +4,11 @@
 {
     Walls.Wall[] walls;
     Walls wallsInstance;
+
     public Game()
     {
         wallsInstance = new Walls();
-        walls = wallsInstance.CreateWalls(100);
+        walls = wallsInstance.CreateWalls(Console.WindowWidth / 2, 5,8);
     }
 
     public void Run()
