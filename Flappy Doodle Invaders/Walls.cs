@@ -16,9 +16,13 @@ class Walls
             Symbol = symbol;
         }
 
-        public void Fall(int wallsFallSpeed)
+        public void Fall(int wallsFallSpeed, int screenHeight)
         {
             Y += wallsFallSpeed;
+            if (Y >= screenHeight)
+            {
+                Y = 0;
+            }
         }
     }
 
@@ -27,26 +31,29 @@ class Walls
 
     //}
 
-    public Wall[] CreateWalls(int wallsPerRow, int numRows, int gapWidth)
+    public Wall[] CreateWalls(int wallsPerRow, int numRows, int gapWidth, int bossHeight, int startY)
     {
         int totalWalls = wallsPerRow * numRows;
         Wall[] walls = new Wall[totalWalls];
         Random random = new Random();
-        int wallWidth = 2;  // Corrected from `wallwidth` to `wallWidth`
-        int screenHeight = Console.WindowHeight;
-        int screenWidth = Console.WindowWidth;
-        int wallHeight = screenHeight / numRows;
+        int wallWidth = 2;
+        int screenWidth = Console.BufferWidth;
 
+   
         for (int row = 0; row < numRows; row++)
         {
-            int gapStart = random.Next(screenWidth - gapWidth);
-            int y = row * wallHeight;
+            
+            int y = startY + row;
 
-            for (int x = 0; x < screenWidth; x += wallWidth)
+            // Generate a random start position for the gap for each row
+            int gapStart = random.Next(screenWidth - gapWidth);
+
+            for (int i = 0; i < wallsPerRow; i++)
             {
-                if (x < gapStart || x > gapStart + gapWidth)
+                int x = i * wallWidth;
+                if (x < gapStart || x >= gapStart + gapWidth)
                 {
-                    int wallIndex = row * wallsPerRow + (x / wallWidth);
+                    int wallIndex = row * wallsPerRow + i;
                     if (wallIndex < totalWalls)  // Ensure we do not go out of bounds
                     {
                         walls[wallIndex] = new Wall(x, y, "^");
@@ -62,7 +69,7 @@ class Walls
         Console.ForegroundColor = ConsoleColor.Yellow;
         foreach (var wall in walls)
         { 
-            if (wall != null)
+            if (wall != null && wall.Y >= 0 && wall.Y < Console.WindowHeight)
             {
               Console.SetCursorPosition(wall.X, wall.Y);
               Console.Write(wall.Symbol);
