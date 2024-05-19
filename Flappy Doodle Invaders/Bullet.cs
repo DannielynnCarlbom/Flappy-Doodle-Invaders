@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Bullet
+/*public class Bullet
 {
     Vector3d hej;
 
@@ -44,3 +44,4 @@ public class Bullet
         return pos;
     }
 }
+*/

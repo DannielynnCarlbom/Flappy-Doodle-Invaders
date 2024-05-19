@@ -12,13 +12,13 @@ class Player : Doodleship
     {
         //Handles all changes in the playerclass
         HandlePlayerInput();
-        BulletEraser();
+        /*BulletEraser();
 
         foreach (Bullet bullet in bullets)
         {
             if (bullet != null)
                 bullet.Move();
-        }
+        }*/
     }
 
     void HandlePlayerInput()
@@ -46,12 +46,12 @@ class Player : Doodleship
             }
             if (keyInfo.Key == ConsoleKey.Spacebar)
             {
-                Shoot();
+                //Shoot();
             }
         }
     }
 
-    void Shoot()
+    /*void Shoot()
     {
         //Shoots if you can.
         if (bulletCounter < maxBullets)
@@ -60,11 +60,12 @@ class Player : Doodleship
             bulletCounter++;
 
         }
-    }
+    }*/
         public void Render()
         {
          
         }
-     }
+
+}
 
 

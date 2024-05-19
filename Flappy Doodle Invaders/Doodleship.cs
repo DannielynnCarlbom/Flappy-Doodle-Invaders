@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 abstract class Doodleship
 {
@@ -9,9 +10,9 @@ abstract class Doodleship
     char ship = 'A';
     public bool Exist = true;
 
-    public Bullet[] bullets = new Bullet[10];
-    public int bulletCounter = 0;
-    protected int maxBullets = 2; 
+    //public Bullet[] bullets = new Bullet[10];
+    //public int bulletCounter = 0;
+    //protected int maxBullets = 2;
 
     public Doodleship(char ship)
     {
@@ -39,7 +40,7 @@ abstract class Doodleship
     {
         pos.Y += y;
 
-        if (pos.Y>= 30) // INTE KLAR!! Vad kommer max och min vara för Y position
+        if (pos.Y >= 30) // INTE KLAR!! Vad kommer max och min vara för Y position
         {
             pos.Y = 30;
         }
@@ -54,13 +55,13 @@ abstract class Doodleship
         Console.Write(ship);
         //Loops through the bullets and draws them if they exist.
         //Could be optimised with a for-loop from 0 to bulletcount-1
-        foreach (Bullet bullet in bullets)
+        /*foreach (Bullet bullet in bullets)
         {
             if (bullet != null)
                 bullet.Draw();
-        }
+        }*/
     }
-    protected void BulletEraser()
+    /*protected void BulletEraser()
     {
         //loopar igenom array med bullets
         for (int i = 0; i <= bulletCounter; i++)
@@ -81,7 +82,7 @@ abstract class Doodleship
                 bullets[bulletCounter] = null; //Ta bort sista kulan
             }
         }
-    }
+    }*/
 
     public void Eraser()
     {
@@ -92,4 +93,26 @@ abstract class Doodleship
         }
     }
 
+    /*public void CheckCollision()
+    {
+        for (int i = 0; i < player.bulletCounter; i++)
+        {
+            for (int j = 0; j < enemySpwaner.enemyCounter; j++)
+            {
+                int bulletPosX = (int)player.bullets[i].pos.X;
+                int bulletPosY = (int)player.bullets[i].pos.Y;
+                int enemyPosX = (int)enemySpwaner.enemies[j].pos.X;
+                int enemyPosY = (int)enemySpwaner.enemies[j].pos.Y;
+
+                if (bulletPosX == enemyPosX)
+                {
+                    if (bulletPosY == enemyPosY)
+                    {
+                        enemySpwaner.enemies[j].Destroy();
+                        player.bullets[i].isAlive = false;
+                    }
+                }
+            }
+        }
+    }*/
 }
