@@ -9,11 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="GraphictBase">
-      <HintPath>..\..\GraphictBase\GraphictBase\bin\Release\net8.0\GraphictBase.dll</HintPath>
-    </Reference>
     <Reference Include="Vectors3D">
-      <HintPath>..\..\Vectors3D\Vectors3D\bin\Debug\net6.0\Vectors3D.dll</HintPath>
+      <HintPath>D:\Vectors3D.dll</HintPath>
     </Reference>
   </ItemGroup>
 
