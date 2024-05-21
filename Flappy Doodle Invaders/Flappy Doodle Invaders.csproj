@@ -8,10 +8,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Vectors3D">
-      <HintPath>D:\Vectors3D.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

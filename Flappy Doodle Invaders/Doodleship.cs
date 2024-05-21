@@ -6,7 +6,7 @@ abstract class Doodleship
 {
 
     protected int hitpoints = 2;
-    public Point3d pos = new();
+    public Point2d pos = new();
     char ship = 'A';
     public bool Exist = true;
 
