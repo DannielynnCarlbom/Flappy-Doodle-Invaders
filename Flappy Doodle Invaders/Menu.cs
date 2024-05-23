@@ -2,7 +2,7 @@
 
 public class Menu
 {
-    public void StartMenu()
+    public static void StartMenu()
     {
 
         Console.WriteLine("Welcome to Flappy Doodle Invaders\n[1] Highscore\n[2] Start Game");

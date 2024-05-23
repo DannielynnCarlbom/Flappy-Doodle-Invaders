@@ -169,7 +169,7 @@ class Game
                         Console.Clear();
                         Console.WriteLine("YOU LOST!!...");
                         Thread.Sleep(3000);
-                        menu.StartMenu();
+                        Menu.StartMenu();
 
                     }
                 }

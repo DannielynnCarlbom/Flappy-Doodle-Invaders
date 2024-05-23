@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 
-public class Program
+class Program
 {
     static void Main()
     {
