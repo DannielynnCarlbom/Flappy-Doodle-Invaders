@@ -155,7 +155,7 @@ class Game
         {
             for (int j = 0; j < numRows; j++)
             {
-
+                // Inte klart
                 int WallPosX = (int)Walls.pos.X;  // Väggar har inte pos
                 int WallPosY = (int)Walls.pos.Y;
 
