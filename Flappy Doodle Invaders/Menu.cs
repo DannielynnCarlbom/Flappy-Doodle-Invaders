@@ -16,6 +16,7 @@ class Menu
             }
             else if (alt == 2)
             {
+                
                 StartGame();
             }
             else

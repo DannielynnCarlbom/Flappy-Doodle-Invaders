@@ -99,8 +99,7 @@ abstract class Doodleship
         {
             for (int j = 0; j < enemySpwaner.enemyCounter; j++)
             {
-                int bulletPosX = (int)player.bullets[i].pos.X;
-                int bulletPosY = (int)player.bullets[i].pos.Y;
+
                 int enemyPosX = (int)enemySpwaner.enemies[j].pos.X;
                 int enemyPosY = (int)enemySpwaner.enemies[j].pos.Y;
 

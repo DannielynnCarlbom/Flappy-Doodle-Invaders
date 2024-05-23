@@ -10,12 +10,14 @@ class Game
     
     // Instance of the Walls class
     Walls wallsInstance;
+
+    Player player = new('A');
     
     // Speed at which walls fall
-    int wallFallSpeed = 2;
+    int wallFallSpeed = 3;
     
     // Number of rows of walls
-    int numRows = 4;
+    int numRows = 2;
     
     // Number of walls per row
     int wallsPerRow;
@@ -35,7 +37,8 @@ class Game
     
     // Constructor for the Game class
     public Game()
-    {     
+    {
+        player.Draw();
         wallsInstance = new Walls();            
         screenHeight = Console.WindowHeight;
         wallsPerRow = Console.WindowWidth / 2;
@@ -56,17 +59,28 @@ class Game
         // Initialize the game settings
         Initializer();
         {
+            int looptime = 0;
+
             while (true)
             {
-                // Update game state
-                Update();             
+                Console.Clear();
+                //if (looptime == 0)
+                UpdateWall();
+                //player.Update();
+                // Update game state       
                 Thread.Sleep(300); // Pause for a short time before updating again
+                /*if (looptime == 20)
+                    looptime = 0;
+                else
+                    looptime++;*/
+
+                Render();
             }
         }
     }
 
     //Method made for updating the state of the game
-    public void Update()
+    public void UpdateWall()
     {
         int currentTime = Environment.TickCount;
 
@@ -88,12 +102,17 @@ class Game
             }
         }
 
-        // Clear the console and render the walls
-        Console.Clear();
-        Walls.Render(walls);
         //boss.Render(); (commented out for now because of not using the boss class)
     }
 
+    public void Render()
+    {
+        // Clear the console and render the walls
+        Console.Clear();
+        Walls.Render(walls);
+        player.Update();
+        player.Draw();
+    }
 
     // Method to initialize the game settings
     public void Initializer()

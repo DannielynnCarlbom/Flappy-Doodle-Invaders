@@ -58,7 +58,7 @@ class Walls
                     int wallIndex = row * wallsPerRow + i;
                     if (wallIndex < totalWalls)  // Ensure we do not go out of bounds
                     {
-                        walls[wallIndex] = new Wall(x, y, "^");
+                        walls[wallIndex] = new Wall(x, y, "\u00A4");
                     }
                 }
             }

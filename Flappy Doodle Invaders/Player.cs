@@ -10,15 +10,7 @@ class Player : Doodleship
 
     public void Update()
     {
-        //Handles all changes in the playerclass
         HandlePlayerInput();
-        /*BulletEraser();
-
-        foreach (Bullet bullet in bullets)
-        {
-            if (bullet != null)
-                bullet.Move();
-        }*/
     }
 
     void HandlePlayerInput()
@@ -28,21 +20,21 @@ class Player : Doodleship
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
 
-            if(keyInfo.Key == ConsoleKey.A) //ConsoleKey.LeftArrow
+            if(keyInfo.Key == ConsoleKey.A||keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                MoveY(-1);
+                MoveX(-1);
             }
-            if(keyInfo.Key == ConsoleKey.D) //ConsoleKey.RighttArrow
+            if(keyInfo.Key == ConsoleKey.D||keyInfo.Key==ConsoleKey.RightArrow)
             {
                 MoveX(1);
             }
-            if(keyInfo.Key == ConsoleKey.W) //ConsoleKey.UpArrow
+            if(keyInfo.Key == ConsoleKey.W||keyInfo.Key==ConsoleKey.UpArrow)
             {
                 MoveY(1);
             }
-            if (keyInfo.Key == ConsoleKey.S) //ConsoleKey.DownArrow
+            if (keyInfo.Key == ConsoleKey.S||keyInfo.Key==ConsoleKey.DownArrow)
             {
-                MoveX(-1);
+                MoveY(-1);
             }
             if (keyInfo.Key == ConsoleKey.Spacebar)
             {
@@ -50,21 +42,6 @@ class Player : Doodleship
             }
         }
     }
-
-    /*void Shoot()
-    {
-        //Shoots if you can.
-        if (bulletCounter < maxBullets)
-        {
-            bullets[bulletCounter] = new(pos);
-            bulletCounter++;
-
-        }
-    }*/
-        public void Render()
-        {
-         
-        }
 
 }
 
