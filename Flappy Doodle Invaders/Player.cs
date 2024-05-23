@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 class Player : Doodleship
 {
@@ -8,12 +9,8 @@ class Player : Doodleship
         pos.Y = Console.WindowHeight - 2;
     }
 
-    public void Update()
-    {
-        HandlePlayerInput();
-    }
 
-    void HandlePlayerInput()
+    public void HandlePlayerInput()
     {
         if(Console.KeyAvailable)
         {

@@ -5,6 +5,9 @@ using System.Timers;
 // Class responsible for managing the game logic
 class Game
 {
+    bool loop = true;
+
+
     // Array of walls in the game
     Walls.Wall[] walls;
     
@@ -59,8 +62,6 @@ class Game
         // Initialize the game settings
         Initializer();
         {
-            int looptime = 0;
-
             while (true)
             {
                 Console.Clear();
@@ -110,7 +111,7 @@ class Game
         // Clear the console and render the walls
         Console.Clear();
         Walls.Render(walls);
-        player.Update();
+        player.HandlePlayerInput();
         player.Draw();
     }
 
@@ -144,6 +145,34 @@ class Game
             if (wall != null)
             {
                 wall.Y = -1;  // Start just above the screen
+            }
+        }
+    }
+
+    public void CheckCollision()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            for (int j = 0; j < numRows; j++)
+            {
+
+                int WallPosX = (int)Walls.pos.X;  // Väggar har inte pos
+                int WallPosY = (int)Walls.pos.Y;
+
+                if (player.pos.X == WallPosX)
+                {
+                    if (player.pos.Y == WallPosY)
+                    {
+
+                        loop = false;
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        Console.WriteLine("YOU LOST!!...");
+                        Thread.Sleep(3000);
+                        menu.StartMenu();
+
+                    }
+                }
             }
         }
     }
