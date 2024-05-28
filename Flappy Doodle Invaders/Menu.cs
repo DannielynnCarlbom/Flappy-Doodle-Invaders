@@ -2,6 +2,7 @@
 
 public class Menu
 {
+
     public static void StartMenu()
     {
 
@@ -25,7 +26,7 @@ public class Menu
         
     }
     
-    public void StartGame()
+    public static void StartGame()
     {
         Console.Clear();
         Console.WriteLine("Starting Game... ");

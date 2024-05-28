@@ -6,8 +6,8 @@ class Program
 {
     static void Main()
     {
-        Menu menu = new();
-        menu.StartMenu();
+        //Menu menu = new();
+        Menu.StartMenu();
 
     }
 }

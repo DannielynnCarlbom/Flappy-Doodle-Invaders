@@ -59,7 +59,7 @@ class Game
     public void Run()
     {
 
-        // Initialize the game settings
+        
         Initializer();
         {
             while (true)
@@ -80,8 +80,8 @@ class Game
         }
     }
 
-    //Method made for updating the state of the game
-    public void UpdateWall()
+    
+    public void UpdateWall()//Method made for updating the state of the game
     {
         int currentTime = Environment.TickCount;
 
@@ -115,11 +115,10 @@ class Game
         player.Draw();
     }
 
-    // Method to initialize the game settings
-    public void Initializer()
+    
+    public void Initializer()// Method to initialize the game settings
     {
         Console.CursorVisible = false; //Made for hiding the cursor
-        // For setting the buffer size to match the window size
         Console.BufferHeight = Console.WindowHeight; 
         Console.BufferWidth = Console.WindowWidth;
     }
@@ -149,7 +148,7 @@ class Game
         }
     }
 
-    public void CheckCollision()
+    /*public void CheckCollision()
     {
         for (int i = 0; i < 1; i++)
         {
@@ -175,7 +174,7 @@ class Game
                 }
             }
         }
-    }
+    }*/
 }
 
 

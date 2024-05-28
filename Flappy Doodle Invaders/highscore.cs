@@ -34,6 +34,9 @@
                 continue;
             }
         }
+
+        Console.WriteLine("\n");
+        Menu.StartMenu();
     }
 
     // Sortering måsta lösas
